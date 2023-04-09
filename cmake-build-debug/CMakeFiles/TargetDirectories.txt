@@ -1,0 +1,3 @@
+C:/Users/kotel/CLionProjects/laba20/cmake-build-debug/CMakeFiles/laba20.dir
+C:/Users/kotel/CLionProjects/laba20/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/kotel/CLionProjects/laba20/cmake-build-debug/CMakeFiles/rebuild_cache.dir
