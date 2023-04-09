@@ -4,6 +4,7 @@
 
 #include <malloc.h>
 #include "vector.h.h"
+#include <stdbool.h>
 
 Vector createVector(size_t n) {
     Vector a;
@@ -39,6 +40,7 @@ void reserve(Vector *v, size_t newCapacity) {
         }
         else {
             realloc(v->data, newCapacity * sizeof(int));
+
             v->capacity = newCapacity;
         }
     }
@@ -57,4 +59,37 @@ void shrinkToFit(Vector *v) {
 
 void deleteVector(Vector *v) {
     free(v->data);
+}
+
+bool isEmpty(Vector *v) {
+    return v->size == 0 ? true : false;
+}
+
+bool isFull(Vector *v) {
+    return v->size == v->capacity ? true : false;
+}
+
+int getVectorValue(Vector *v, size_t i) {
+    return v->data[i];
+}
+
+void pushBack(Vector *v, int x) {
+    if (isFull(v)) {
+        reserve(v, v->capacity + 1);
+    }
+    else if (isEmpty(v)) {
+        createVector(1);
+    }
+    v->data[v->size] = x;
+    v->size += 1;
+}
+
+void popBack(Vector *v) {
+    if (isEmpty(v)) {
+        fprintf(stderr, "bad alloc");
+        exit(1);
+    }
+    else {
+        v->size--;
+    }
 }
