@@ -40,7 +40,6 @@ void reserve(Vector *v, size_t newCapacity) {
         }
         else {
             realloc(v->data, newCapacity * sizeof(int));
-
             v->capacity = newCapacity;
         }
     }
@@ -52,7 +51,7 @@ void clear(Vector *v) {
 
 void shrinkToFit(Vector *v) {
     for (int i = v->size - 1; i < v->capacity; i++)
-        free(v->data[i]);
+        free(&v->data[i]);
 
     v->capacity = v->size;
 }
