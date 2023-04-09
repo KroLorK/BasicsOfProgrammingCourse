@@ -1,7 +1,10 @@
 #include <stdio.h>
+#include "vector.h.h"
+#include <stdint.h>
 
 int main() {
-    printf("Hello, World!\n");
+    Vector v = createVector(10);
+    reserve(&v, SIZE_MAX);
 
     return 0;
 }
